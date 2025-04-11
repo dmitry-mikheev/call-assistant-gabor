@@ -4,7 +4,7 @@ Local Project Launch Guide 🚀
 
 1. 🌐 Run Ngrok service to create tunnel:
 
-`ngrok http --url=mighty-ready-troll.ngrok-free.app 8000`
+`ngrok http --url=your-grok-domain.app 8000`
 
 2. 🖥️ Start Node.js service:
 
