@@ -20,6 +20,7 @@ const {
   TWILIO_AUTH_TOKEN,
   TWILIO_PHONE_NUMBER,
   TOKEN,
+  FIREBASE_DATABASE_URL
 } = process.env;
 
 if (
@@ -28,7 +29,8 @@ if (
   !TWILIO_ACCOUNT_SID ||
   !TWILIO_AUTH_TOKEN ||
   !TWILIO_PHONE_NUMBER ||
-  !TOKEN
+  !TOKEN ||
+  !FIREBASE_DATABASE_URL
 ) {
   console.error('Missing required environment variables');
   throw new Error('Missing required environment variables');
@@ -40,7 +42,7 @@ const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, 'utf8'));
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://ai-realtor-fa259-default-rtdb.europe-west1.firebasedatabase.app"
+  databaseURL: FIREBASE_DATABASE_URL
 });
 
 // Get a reference to the Realtime Database
